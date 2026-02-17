@@ -9,6 +9,7 @@ import About from './components/About/About.jsx'
 import Contact from './components/Contact/Contact.jsx'
 import User from './components/User/User.jsx'
 import Github, { githubInfoLoader } from './components/Github/Github.jsx'
+import ProtectedRoute from './components/ProtectedRoute.jsx'
 
 // const router = createBrowserRouter([
 //   {
@@ -41,8 +42,11 @@ const router = createBrowserRouter(
       <Route 
       loader={githubInfoLoader}
       path='github' 
-      element={<Github />}
-       />
+      element={
+      <ProtectedRoute>
+      <Github />
+      </ProtectedRoute>}
+      />
     </Route>
   )
 )
